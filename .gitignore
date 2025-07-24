@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+.build/
+.worker/
+
+# Local dev
+wrangler.toml.local
+.wrangler/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
