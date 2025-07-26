@@ -57,6 +57,7 @@ export default {
     }
 
     const response = new Response(githubRes.body, githubRes);
+    response.headers.delete("content-length");
     response.headers.set("Cache-Control", "public, max-age=3600");
 
     await cache.put(cacheKey, response.clone());
