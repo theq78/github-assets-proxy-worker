@@ -1,5 +1,5 @@
 {
-  "name": "github-assets-proxy",
+  "name": "github-assets-proxy-worker",
   "compatibility_date": "2025-07-24",
   "main": "src/index.ts"
 }
