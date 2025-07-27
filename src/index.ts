@@ -17,6 +17,7 @@ export default {
   async fetch(request: Request): Promise<Response> {
     const url = new URL(request.url);
     const pathParts = url.pathname.split('/').filter(Boolean);
+    console.log("Request received", request.url);
 
     if (pathParts.length < 3) {
       return new Response('Usage: /:user/:repo/...path', { status: 400 });
@@ -57,7 +58,11 @@ export default {
     }
 
     const response = new Response(githubRes.body, githubRes);
-    response.headers.delete("content-length");
+    const isIso = assetPath[assetPath.length - 1].endsWith('.iso');
+    console.log("IsIso ?", isIso);
+    if (isIso) {
+      response.headers.set('Content-Type', 'application/x-iso9660-image');
+    }
     response.headers.set("Cache-Control", "public, max-age=3600");
 
     await cache.put(cacheKey, response.clone());
