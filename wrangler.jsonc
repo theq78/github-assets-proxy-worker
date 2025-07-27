@@ -2,7 +2,9 @@
   "name": "github-assets-proxy-worker",
   "compatibility_date": "2025-07-24",
   "main": "src/index.ts",
-  "tail": {
-    "format": "json"
+  "observability": {
+    "logs": {
+      "enabled": true
+    }
   }
 }
